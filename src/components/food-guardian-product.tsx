@@ -290,6 +290,10 @@ export function FoodGuardianProduct() {
         </aside>
 
         <main className={styles.main}>
+          <div className={styles.mobileBrand}>
+            <span>FoodGuardian AI</span>
+            <strong>Household Food Intelligence</strong>
+          </div>
           <section className={styles.topbar}>
             <div className={styles.topbarMeta}>
               <span className={styles.chip}>当前身份：{isAuthenticated ? profile.nickname : "未登录"}</span>
@@ -383,6 +387,29 @@ export function FoodGuardianProduct() {
             />
           )}
         </main>
+
+        <nav className={styles.mobileNav}>
+          <button className={styles.mobileNavLink} data-active={activeSection === "overview"} onClick={() => setActiveSection("overview")}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <span>总览</span>
+          </button>
+          <button className={styles.mobileNavLink} data-active={activeSection === "nutrition"} onClick={() => setActiveSection("nutrition")}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
+            <span>营养</span>
+          </button>
+          <button className={styles.mobileNavLink} data-active={activeSection === "chat"} onClick={() => setActiveSection("chat")}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <span>对话</span>
+          </button>
+          <button className={styles.mobileNavLink} data-active={activeSection === "fridge"} onClick={() => setActiveSection("fridge")}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 2h14a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="M3 10h18"/><path d="M10 4v4"/><path d="M14 4v4"/></svg>
+            <span>库存</span>
+          </button>
+          <button className={styles.mobileNavLink} data-active={activeSection === "voice"} onClick={() => setActiveSection("voice")}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+            <span>语音</span>
+          </button>
+        </nav>
       </div>
     </div>
   );

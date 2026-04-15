@@ -541,37 +541,140 @@
   line-height: 1.8;
 }
 
-@media (max-width: 1260px) {
-  .hero,
-  .authShell,
-  .twoCol,
-  .threeCol {
-    grid-template-columns: 1fr;
-  }
-}
-
 @media (max-width: 920px) {
   .app {
     grid-template-columns: 1fr;
+    padding-bottom: 90px; /* Space for bottom nav */
   }
 
   .sidebar {
-    border-right: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: none; /* Hide sidebar on mobile */
   }
 
   .main {
-    padding: 18px;
+    padding: 16px;
+    gap: 16px;
   }
 
-  .metricGrid,
+  .metricGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .heroMain {
+    padding: 32px 24px;
+  }
+
   .featureStrip,
-  .formGrid {
+  .formGrid,
+  .threeCol,
+  .twoCol {
     grid-template-columns: 1fr;
   }
 
   .topbar {
     align-items: flex-start;
     flex-direction: column;
+    padding: 16px;
+    border-radius: 20px;
+  }
+
+  .panel,
+  .authCard,
+  .listCard,
+  .voiceCard {
+    padding: 24px 20px;
+    border-radius: 24px;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+}
+
+/* Bottom Navigation Bar for Mobile */
+.mobileNav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 72px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(24px);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 0 12px;
+  padding-bottom: env(safe-area-inset-bottom);
+  z-index: 1000;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@media (min-width: 921px) {
+  .mobileNav {
+    display: none !important;
+  }
+}
+
+@media (max-width: 920px) {
+  .mobileNav {
+    display: flex;
+  }
+}
+
+.mobileNavLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: 0;
+  color: var(--muted);
+  font-size: 10px;
+  padding: 8px;
+  flex: 1;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.mobileNavLink[data-active="true"] {
+  color: var(--accent);
+}
+
+.mobileNavLink svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Header for mobile since sidebar is gone */
+.mobileBrand {
+  display: none;
+}
+
+@media (max-width: 920px) {
+  .mobileBrand {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 12px;
+    padding: 0 4px;
+  }
+
+  .mobileBrand strong {
+    font-size: 18px;
+    font-family: var(--font-display), serif;
+    color: var(--accent-2);
+  }
+
+  .mobileBrand span {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
   }
 }

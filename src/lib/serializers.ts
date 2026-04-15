@@ -1,4 +1,4 @@
-import type { User, IntakeRecord, FridgeItem, ShoppingItem, ChatMessage } from "@prisma/client";
+import type { User, IntakeRecord, FridgeItem, ShoppingItem, ChatMessage } from "@generated/prisma";
 
 export function serializeAppState(input: {
   user: User;

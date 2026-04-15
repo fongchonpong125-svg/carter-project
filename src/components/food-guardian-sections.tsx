@@ -368,30 +368,54 @@ export function FoodGuardianSections(props: Props) {
             <div className={styles.sectionHeader}>
               <div>
                 <h2>语音交互</h2>
-                <p>浏览器端录音识别，服务端仍然使用同一个账户上下文和 AI 能力。</p>
+                <p>无需动手，直接通过语音管理你的健康饮食。尝试说出你的需求。</p>
               </div>
             </div>
-            <div className={styles.voiceActions}>
-              <button type="button" className={styles.cta} onClick={onStartVoice}>
-                {isListening ? "停止录音" : "开始录音"}
+
+            <div className={styles.voiceCentric}>
+              <div className={styles.voiceVisualizer} data-listening={isListening}>
+                {[...Array(9)].map((_, i) => (
+                  <div key={i} className={styles.voiceBar} />
+                ))}
+              </div>
+
+              <button
+                type="button"
+                className={styles.voiceMicBtn}
+                data-listening={isListening}
+                onClick={onStartVoice}
+                title={isListening ? "停止录音" : "开始录音"}
+              >
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                  <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                  <line x1="12" y1="19" x2="12" y2="23" />
+                  <line x1="8" y1="23" x2="16" y2="23" />
+                </svg>
               </button>
-              <button type="button" className={styles.secondary} onClick={() => onAskAi(voiceText)}>
-                识别文本发给 AI
-              </button>
-              <button type="button" className={styles.ghost} onClick={onSpeak}>
-                播报最新回复
+
+              <div className={styles.muted}>状态：{voiceStatus}</div>
+            </div>
+
+            <div className={styles.voiceTranscript}>{voiceText}</div>
+
+            <div className={styles.inlineActions} style={{ justifyContent: "center", marginTop: 24 }}>
+              <button type="button" className={styles.secondary} onClick={onSpeak}>
+                🔈 播报最近一次回复
               </button>
             </div>
-            <div className={styles.muted}>当前状态：{voiceStatus}</div>
-            <div className={styles.voiceTranscript}>{voiceText}</div>
           </div>
 
           <div className={styles.listCard}>
-            <strong>上线提示</strong>
-            <div className={styles.list}>
-              <div className={styles.item}>开发期使用 SQLite，适合本地快速验证。</div>
-              <div className={styles.item}>部署到线上时建议把数据库切到托管 PostgreSQL。</div>
-              <div className={styles.item}>只要配置 `ZHIPU_API_KEY` / `SESSION_SECRET` 就能跑完整链路。</div>
+            <strong>语音指令示例</strong>
+            <p className={styles.muted} style={{ fontSize: 13, marginBottom: 16 }}>
+              你可以这样对我说：
+            </p>
+            <div className={styles.voiceTips}>
+              <div className={styles.voiceTipItem}>“我刚才吃了 300g 蔬菜和 1 个鸡蛋”</div>
+              <div className={styles.voiceTipItem}>“帮我检查冰箱还有多少蘑菇？”</div>
+              <div className={styles.voiceTipItem}>“根据我的库存建议一份高蛋白午餐”</div>
+              <div className={styles.voiceTipItem}>“把牛奶添加到我的采购清单里”</div>
             </div>
           </div>
         </section>

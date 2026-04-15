@@ -216,11 +216,19 @@ export function FoodGuardianProduct() {
     recognition.maxAlternatives = 1;
     recognition.onstart = () => {
       setIsListening(true);
-      setVoiceStatus("录音中...");
+      setVoiceStatus("正在聆听...");
     };
     recognition.onresult = (event) => {
-      setVoiceText(event.results[0]?.[0]?.transcript ?? "没有识别到内容。");
-      setVoiceStatus("识别完成");
+      const text = event.results[0]?.[0]?.transcript ?? "";
+      setVoiceText(text || "没有识别到内容。");
+      setVoiceStatus("识别成功，正在发送...");
+      if (text) {
+        // Auto-submit to AI after a short delay
+        setTimeout(() => {
+          void askAi(text);
+          setVoiceStatus("已发送给 AI，请在对话框查看回复");
+        }, 800);
+      }
     };
     recognition.onerror = () => {
       setVoiceStatus("识别失败，请检查麦克风权限");
@@ -228,7 +236,7 @@ export function FoodGuardianProduct() {
     };
     recognition.onend = () => {
       setIsListening(false);
-      setVoiceStatus((current) => (current === "录音中..." ? "已停止" : current));
+      setVoiceStatus((current) => (current === "正在聆听..." ? "已停止" : current));
     };
     recognitionRef.current = recognition;
     recognition.start();

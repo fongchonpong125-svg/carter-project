@@ -271,146 +271,148 @@ export function FoodGuardianProduct() {
   if (authLoading) return <div className="shell" style={{ padding: 48 }}>加载中...</div>;
 
   return (
-    <div className="shell">
-      <div className={styles.app}>
-        <aside className={styles.sidebar}>
-          <div className={styles.brand}>
-            <span className={styles.eyebrow}>FoodGuardian AI</span>
-            <h1 className={styles.title}>Household Food Intelligence</h1>
-            <p className={styles.sidebarLead}>本项目深度联动内置 <b>超清视觉摄像头</b> 与 <b>远场阵列麦克风</b> 的智能冰箱，实现在线食材识别与全语音无感交互。</p>
-          </div>
-          <nav className={styles.nav}>
-            {(Object.keys(sectionLabels) as SectionKey[]).map((section) => (
-              <button key={section} type="button" data-active={activeSection === section} onClick={() => setActiveSection(section)}>
-                {sectionLabels[section]}
-              </button>
-            ))}
-          </nav>
-          <div className={styles.sidebarFooter}>功能上继续保留营养分析、库存、食谱、对话、语音和识图；架构上已经进入可持续迭代的 Web 产品路线。</div>
-        </aside>
-
-        <main className={styles.main}>
-          <div className={styles.mobileBrand}>
-            <span>FoodGuardian AI</span>
-            <strong>Household Food Intelligence</strong>
-          </div>
-          <section className={styles.topbar}>
-            <div className={styles.topbarMeta}>
-              <span className={styles.chip}>当前身份：{isAuthenticated ? profile.nickname : "未登录"}</span>
-              <span className={styles.chip}>人群标签：{populationGroup}</span>
-              <span className={styles.chip}>库存食材：{appData.fridge_inventory.length} 项</span>
+    <>
+      <div className="shell">
+        <div className={styles.app}>
+          <aside className={styles.sidebar}>
+            <div className={styles.brand}>
+              <span className={styles.eyebrow}>FoodGuardian AI</span>
+              <h1 className={styles.title}>Household Food Intelligence</h1>
+              <p className={styles.sidebarLead}>本项目深度联动内置 <b>超清视觉摄像头</b> 与 <b>远场阵列麦克风</b> 的智能冰箱，实现在线食材识别与全语音无感交互。</p>
             </div>
-            <div className={styles.topbarActions}>
-              {isAuthenticated ? (
-                <button type="button" className={styles.ghost} onClick={logout}>退出登录</button>
-              ) : (
-                <button type="button" className={styles.ghost}>登录后自动同步数据</button>
-              )}
-            </div>
-          </section>
+            <nav className={styles.nav}>
+              {(Object.keys(sectionLabels) as SectionKey[]).map((section) => (
+                <button key={section} type="button" data-active={activeSection === section} onClick={() => setActiveSection(section)}>
+                  {sectionLabels[section]}
+                </button>
+              ))}
+            </nav>
+            <div className={styles.sidebarFooter}>功能上继续保留营养分析、库存、食谱、对话、语音和识图；架构上已经进入可持续迭代的 Web 产品路线。</div>
+          </aside>
 
-          <section className={styles.hero}>
-            <div className={styles.heroMain}>
-              <span className={styles.eyebrow}>Reference-inspired product UI</span>
-              <h2 className={styles.title}>把原桌面功能做成更像正式产品的健康饮食平台</h2>
-              <p className={styles.heroText}>视觉上改成更有品牌感的分层卡片、编辑式大标题和柔和暖色体系；功能上已经开始走真实持久化、登录会话和多模态能力。</p>
-              <div className={styles.heroActions}>
-                <button type="button" className={styles.cta} onClick={() => setActiveSection("nutrition")}>打开营养分析</button>
-                <button type="button" className={styles.secondary} onClick={() => setActiveSection("chat")}>进入 AI 对话</button>
-                <button type="button" className={styles.ghost} onClick={() => setActiveSection("voice")}>开始语音交互</button>
+          <main className={styles.main}>
+            <div className={styles.mobileBrand}>
+              <span>FoodGuardian AI</span>
+              <strong>Household Food Intelligence</strong>
+            </div>
+            <section className={styles.topbar}>
+              <div className={styles.topbarMeta}>
+                <span className={styles.chip}>当前身份：{isAuthenticated ? profile.nickname : "未登录"}</span>
+                <span className={styles.chip}>人群标签：{populationGroup}</span>
+                <span className={styles.chip}>库存食材：{appData.fridge_inventory.length} 项</span>
               </div>
-            </div>
-            <div className={styles.heroSide}>
-              <div className={styles.metricGrid}>
-                {metrics.map((metric) => (
-                  <div key={metric.label} className={styles.metricCard}>
-                    <span>{metric.label}</span>
-                    <strong>{metric.value}</strong>
-                  </div>
-                ))}
+              <div className={styles.topbarActions}>
+                {isAuthenticated ? (
+                  <button type="button" className={styles.ghost} onClick={logout}>退出登录</button>
+                ) : (
+                  <button type="button" className={styles.ghost}>登录后自动同步数据</button>
+                )}
               </div>
-              <div className={styles.featureStrip}>
-                <div className={styles.featureCell}><strong>视觉感知</strong><div className={styles.muted}>利用冰箱内摄像头，自动追踪食材变动。</div></div>
-                <div className={styles.featureCell}><strong>声纹交互</strong><div className={styles.muted}>通过高灵敏麦克风，在厨房任何角落都能对话。</div></div>
-                <div className={styles.featureCell}><strong>多端同步</strong><div className={styles.muted}>冰箱端与 Web 端数据实时互通。</div></div>
+            </section>
+
+            <section className={styles.hero}>
+              <div className={styles.heroMain}>
+                <span className={styles.eyebrow}>Reference-inspired product UI</span>
+                <h2 className={styles.title}>把原桌面功能做成更像正式产品的健康饮食平台</h2>
+                <p className={styles.heroText}>视觉上改成更有品牌感的分层卡片、编辑式大标题和柔和暖色体系；功能上已经开始走真实持久化、登录会话和多模态能力。</p>
+                <div className={styles.heroActions}>
+                  <button type="button" className={styles.cta} onClick={() => setActiveSection("nutrition")}>打开营养分析</button>
+                  <button type="button" className={styles.secondary} onClick={() => setActiveSection("chat")}>进入 AI 对话</button>
+                  <button type="button" className={styles.ghost} onClick={() => setActiveSection("voice")}>开始语音交互</button>
+                </div>
               </div>
-            </div>
-          </section>
+              <div className={styles.heroSide}>
+                <div className={styles.metricGrid}>
+                  {metrics.map((metric) => (
+                    <div key={metric.label} className={styles.metricCard}>
+                      <span>{metric.label}</span>
+                      <strong>{metric.value}</strong>
+                    </div>
+                  ))}
+                </div>
+                <div className={styles.featureStrip}>
+                  <div className={styles.featureCell}><strong>视觉感知</strong><div className={styles.muted}>利用冰箱内摄像头，自动追踪食材变动。</div></div>
+                  <div className={styles.featureCell}><strong>声纹交互</strong><div className={styles.muted}>通过高灵敏麦克风，在厨房任何角落都能对话。</div></div>
+                  <div className={styles.featureCell}><strong>多端同步</strong><div className={styles.muted}>冰箱端与 Web 端数据实时互通。</div></div>
+                </div>
+              </div>
+            </section>
 
-          {!isAuthenticated ? (
-            <FoodGuardianAuth
-              authMode={authMode}
-              authForm={authForm}
-              authError={authError}
-              onAuthModeChange={setAuthMode}
-              onAuthFormChange={setAuthForm}
-              onSubmit={submitAuth}
-            />
-          ) : (
-            <FoodGuardianSections
-              activeSection={activeSection}
-              profile={profile}
-              populationGroup={populationGroup}
-              latestSummary={assessmentSummary.summary}
-              assessmentEntries={Object.entries(assessment) as Array<[FoodKey, (typeof assessment)[FoodKey]]>}
-              intakeRecords={appData.daily_intake_records}
-              fridgeItems={appData.fridge_inventory}
-              shoppingItems={shoppingItems}
-              chatMessages={chatMessages}
-              recipeRequest={recipeRequest}
-              recipeResult={recipeResult}
-              chatPrompt={chatPrompt}
-              intakeForm={intakeForm}
-              fridgeForm={fridgeForm}
-              shoppingForm={shoppingForm}
-              visionResult={visionResult}
-              voiceText={voiceText}
-              voiceStatus={voiceStatus}
-              isListening={isListening}
-              savingProfile={savingProfile}
-              onProfileChange={(next) => setProfile((current) => ({ ...current, ...next }))}
-              onSaveProfile={saveProfile}
-              onIntakeFormChange={(key, value) => setIntakeForm((current) => ({ ...current, [key]: value }))}
-              onAddIntake={addIntakeRecord}
-              onRecipeRequestChange={setRecipeRequest}
-              onGenerateRecipe={generateRecipe}
-              onChatPromptChange={setChatPrompt}
-              onAskAi={askAi}
-              onFridgeFormChange={setFridgeForm}
-              onAddFridgeItem={addFridgeItem}
-              onShoppingFormChange={setShoppingForm}
-              onAddShoppingItem={addShoppingItem}
-              onToggleShoppingItem={toggleShoppingItem}
-              onUploadVision={(file) => void uploadVision(file)}
-              onStartVoice={handleVoiceInput}
-              onSpeak={speakLatestReply}
-            />
-          )}
-        </main>
-
-        <nav className={styles.mobileNav}>
-          <button className={styles.mobileNavLink} data-active={activeSection === "overview"} onClick={() => setActiveSection("overview")}>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            <span>总览</span>
-          </button>
-          <button className={styles.mobileNavLink} data-active={activeSection === "nutrition"} onClick={() => setActiveSection("nutrition")}>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
-            <span>营养</span>
-          </button>
-          <button className={styles.mobileNavLink} data-active={activeSection === "chat"} onClick={() => setActiveSection("chat")}>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            <span>对话</span>
-          </button>
-          <button className={styles.mobileNavLink} data-active={activeSection === "fridge"} onClick={() => setActiveSection("fridge")}>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 2h14a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="M3 10h18"/><path d="M10 4v4"/><path d="M14 4v4"/></svg>
-            <span>库存</span>
-          </button>
-          <button className={styles.mobileNavLink} data-active={activeSection === "voice"} onClick={() => setActiveSection("voice")}>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
-            <span>语音</span>
-          </button>
-        </nav>
+            {!isAuthenticated ? (
+              <FoodGuardianAuth
+                authMode={authMode}
+                authForm={authForm}
+                authError={authError}
+                onAuthModeChange={setAuthMode}
+                onAuthFormChange={setAuthForm}
+                onSubmit={submitAuth}
+              />
+            ) : (
+              <FoodGuardianSections
+                activeSection={activeSection}
+                profile={profile}
+                populationGroup={populationGroup}
+                latestSummary={assessmentSummary.summary}
+                assessmentEntries={Object.entries(assessment) as Array<[FoodKey, (typeof assessment)[FoodKey]]>}
+                intakeRecords={appData.daily_intake_records}
+                fridgeItems={appData.fridge_inventory}
+                shoppingItems={shoppingItems}
+                chatMessages={chatMessages}
+                recipeRequest={recipeRequest}
+                recipeResult={recipeResult}
+                chatPrompt={chatPrompt}
+                intakeForm={intakeForm}
+                fridgeForm={fridgeForm}
+                shoppingForm={shoppingForm}
+                visionResult={visionResult}
+                voiceText={voiceText}
+                voiceStatus={voiceStatus}
+                isListening={isListening}
+                savingProfile={savingProfile}
+                onProfileChange={(next) => setProfile((current) => ({ ...current, ...next }))}
+                onSaveProfile={saveProfile}
+                onIntakeFormChange={(key, value) => setIntakeForm((current) => ({ ...current, [key]: value }))}
+                onAddIntake={addIntakeRecord}
+                onRecipeRequestChange={setRecipeRequest}
+                onGenerateRecipe={generateRecipe}
+                onChatPromptChange={setChatPrompt}
+                onAskAi={askAi}
+                onFridgeFormChange={setFridgeForm}
+                onAddFridgeItem={addFridgeItem}
+                onShoppingFormChange={setShoppingForm}
+                onAddShoppingItem={addShoppingItem}
+                onToggleShoppingItem={toggleShoppingItem}
+                onUploadVision={(file) => void uploadVision(file)}
+                onStartVoice={handleVoiceInput}
+                onSpeak={speakLatestReply}
+              />
+            )}
+          </main>
+        </div>
       </div>
-    </div>
+
+      <nav className={styles.mobileNav}>
+        <button className={styles.mobileNavLink} data-active={activeSection === "overview"} onClick={() => setActiveSection("overview")}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span>总览</span>
+        </button>
+        <button className={styles.mobileNavLink} data-active={activeSection === "nutrition"} onClick={() => setActiveSection("nutrition")}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
+          <span>营养</span>
+        </button>
+        <button className={styles.mobileNavLink} data-active={activeSection === "chat"} onClick={() => setActiveSection("chat")}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <span>对话</span>
+        </button>
+        <button className={styles.mobileNavLink} data-active={activeSection === "fridge"} onClick={() => setActiveSection("fridge")}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 2h14a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="M3 10h18"/><path d="M10 4v4"/><path d="M14 4v4"/></svg>
+          <span>库存</span>
+        </button>
+        <button className={styles.mobileNavLink} data-active={activeSection === "voice"} onClick={() => setActiveSection("voice")}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+          <span>语音</span>
+        </button>
+      </nav>
+    </>
   );
 }

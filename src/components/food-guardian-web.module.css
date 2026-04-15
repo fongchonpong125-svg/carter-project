@@ -42,9 +42,10 @@
 .title {
   margin: 0;
   font-family: var(--font-display), serif;
-  font-size: clamp(34px, 4.8vw, 72px);
-  line-height: 0.94;
-  letter-spacing: -0.05em;
+  font-size: clamp(30px, 4.2vw, 64px);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  word-break: break-word;
 }
 
 .sidebarLead {
@@ -587,8 +588,8 @@
   .authCard,
   .listCard,
   .voiceCard {
-    padding: 24px 20px;
-    border-radius: 24px;
+    padding: 20px 16px;
+    border-radius: 20px;
   }
 
   .title {
@@ -603,16 +604,18 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 72px;
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(24px);
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-  padding: 0 12px;
+  height: 68px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+  padding: 0 10px;
   padding-bottom: env(safe-area-inset-bottom);
-  z-index: 1000;
+  z-index: 9999;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  transform: translateZ(0); /* Force GPU acceleration for persistence */
 }
 
 @media (min-width: 921px) {

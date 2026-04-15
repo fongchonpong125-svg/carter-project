@@ -277,7 +277,7 @@ export function FoodGuardianProduct() {
           <div className={styles.brand}>
             <span className={styles.eyebrow}>FoodGuardian AI</span>
             <h1 className={styles.title}>Household Food Intelligence</h1>
-            <p className={styles.sidebarLead}>这版已经按网站产品形态重构，视觉不再是工具页，而是更接近完整消费级健康产品的品牌体验。</p>
+            <p className={styles.sidebarLead}>本项目深度联动内置 <b>超清视觉摄像头</b> 与 <b>远场阵列麦克风</b> 的智能冰箱，实现在线食材识别与全语音无感交互。</p>
           </div>
           <nav className={styles.nav}>
             {(Object.keys(sectionLabels) as SectionKey[]).map((section) => (
@@ -330,9 +330,9 @@ export function FoodGuardianProduct() {
                 ))}
               </div>
               <div className={styles.featureStrip}>
-                <div className={styles.featureCell}><strong>数据库</strong><div className={styles.muted}>摄入、库存、采购、聊天都能持久化。</div></div>
-                <div className={styles.featureCell}><strong>登录会话</strong><div className={styles.muted}>邮箱账号登录，浏览器 Cookie 维持会话。</div></div>
-                <div className={styles.featureCell}><strong>图片识别</strong><div className={styles.muted}>已接视觉路由，配置密钥后可返回正式识别结果。</div></div>
+                <div className={styles.featureCell}><strong>视觉感知</strong><div className={styles.muted}>利用冰箱内摄像头，自动追踪食材变动。</div></div>
+                <div className={styles.featureCell}><strong>声纹交互</strong><div className={styles.muted}>通过高灵敏麦克风，在厨房任何角落都能对话。</div></div>
+                <div className={styles.featureCell}><strong>多端同步</strong><div className={styles.muted}>冰箱端与 Web 端数据实时互通。</div></div>
               </div>
             </div>
           </section>

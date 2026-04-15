@@ -1,0 +1,47 @@
+{
+  "nickname": "施兆麒",
+  "waste_reduced": 510.0,
+  "water_saved": 255.0,
+  "co2_reduced": 1.53,
+  "population_group": "all",
+  "daily_intake_records": [
+    {
+      "date": "2026-04-03",
+      "time": "17:02",
+      "vegetables": 0,
+      "fruits": 150,
+      "meat": 150,
+      "eggs": 50
+    },
+    {
+      "date": "2026-04-03",
+      "time": "17:03",
+      "vegetables": 400,
+      "fruits": 0,
+      "meat": 300,
+      "eggs": 0
+    },
+    {
+      "date": "2026-04-03",
+      "time": "17:04",
+      "vegetables": 400,
+      "fruits": 0,
+      "meat": 150,
+      "eggs": 0
+    }
+  ],
+  "fridge_inventory": [
+    {
+      "name": "黄瓜",
+      "quantity": 200,
+      "unit": "g",
+      "added_date": "2026-04-03"
+    },
+    {
+      "name": "蘑菇",
+      "quantity": 278,
+      "unit": "g",
+      "added_date": "2026-04-03"
+    }
+  ]
+}
